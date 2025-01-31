@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Self-Efficacy Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="main-content">
+        <header>
+            <h1>Self-Efficacy</h1>
+            <p>Platform ini dirancang untuk membantu Anda mengukur self-efficacy Anda.</p>
+            <div class="cta-buttons">
+                <button onclick="showQuestionnaire()">Mulai Sekarang</button>
+                <button onclick="showAboutPage()">Pelajari Lebih Lanjut</button>
+            </div>
+        </header>
+
+        <section class="features">
+            <div class="feature">
+                <i class="icon">📊</i>
+                <h3>Evaluasi Cepat</h3>
+                <p>Dapatkan hasil pengukuran self-efficacy Anda dalam hitungan menit.</p>
+            </div>
+            <div class="feature">
+                <i class="icon">🔬</i>
+                <h3>Pendekatan Ilmiah</h3>
+                <p>Berdasarkan metode psikologi yang terbukti efektif.</p>
+            </div>
+            <div class="feature">
+                <i class="icon">📋</i>
+                <h3>Personalisasi Hasil</h3>
+                <p>Hasil yang dirancang sesuai dengan kebutuhan dan tujuan Anda.</p>
+            </div>
+            <div class="feature">
+                <i class="icon">🌐</i>
+                <h3>Akses Mudah</h3>
+                <p>Gunakan kapan saja dan di mana saja melalui perangkat Anda.</p>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="container">
+                <h2>Apa Itu Self-Efficacy?</h2>
+                <p>
+                    Self-efficacy adalah keyakinan diri seseorang terhadap kemampuannya untuk berhasil dalam situasi tertentu. Dengan mengukur self-efficacy, Anda dapat memahami kekuatan dan area yang perlu ditingkatkan untuk mencapai tujuan Anda.
+                </p>
+
+                <h2>Mengapa Penting?</h2>
+                <p>Penelitian menunjukkan bahwa self-efficacy yang tinggi dapat meningkatkan kinerja, ketahanan terhadap stres, dan motivasi Anda dalam berbagai aspek kehidupan, mulai dari pekerjaan hingga hubungan pribadi.</p>
+
+                <h2>Cara Kerjanya</h2>
+                <ol>
+                    <li>Isi kuesioner online.</li>
+                    <li>Dapatkan laporan mendalam tentang self-efficacy Anda.</li>
+                    <li>Ikuti rekomendasi yang dipersonalisasi untuk pengembangan diri.</li>
+                </ol>
+            </div>
+        </section>
+    </div>
+
+    <div id="questionnaire-section" class="hidden">
+        <div class="container">
+            <form id="userForm">
+                <div class="form-section">
+                    <label for="name">Nama Lengkap</label>
+                    <input type="text" id="name" name="name" required pattern=".{2,}" title="Nama harus minimal 2 karakter" />
+                </div>
+
+                <div class="form-section">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required title="Mohon masukkan alamat email yang valid" />
+                </div>
+
+                <div class="form-section">
+                    <label for="age">Usia</label>
+                    <input type="number" id="age" name="age" required min="1" max="150" title="Mohon masukkan usia yang valid" />
+                </div>
+
+                <div class="form-section">
+                    <label for="gender">Jenis Kelamin</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Pilih jenis kelamin</option>
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select>
+                </div>
+
+                <button type="button" class="submit-button" onclick="proceedToQuestionnaire()">Lanjutkan ke Kuisioner</button>
+            </form>
+
+            <div id="questionnaireForm" class="hidden">
+                <h1>Kuisioner Self-Efficacy</h1>
+                <p>Silakan jawab pertanyaan berikut:</p>
+                <form id="selfEfficacyForm">
+                    <div class="progress-bar">
+                        <div id="progressFill"></div>
+                        <span id="questionCounter">Pertanyaan 1 dari 30</span>
+                    </div>
+                    <div id="questionContainer"></div>
+                    <div class="navigation-buttons">
+                        <button type="button" id="prevButton" onclick="showPrevQuestion()" class="hidden">Sebelumnya</button>
+                        <button type="button" id="submitButton" class="submit-button hidden" onclick="submitQuestionnaire()">Kirim Jawaban</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="resultPage" class="hidden">
+                <h1 class="title">Hasil Kuisioner Self-Efficacy</h1>
+                <div class="result-card">
+                    <div id="result"></div>
+                </div>
+                <button type="button" class="submit-button" onclick="backToQuestionnaire()">Kembali ke Awal</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="about-page" class="about-page hidden">
+        <h1>Informasi tentang Self-Efficacy</h1>
+        <p>
+            Self-Efficacy adalah keyakinan individu terhadap kemampuan dirinya untuk mengorganisasi dan melaksanakan tindakan yang diperlukan guna mencapai tujuan tertentu. Konsep ini pertama kali diperkenalkan oleh Albert Bandura, seorang
+            psikolog terkenal, dalam teori kognitif sosialnya.
+        </p>
+
+        <h2>Manfaat Self-Efficacy</h2>
+        <ul>
+            <li>Meningkatkan kemampuan untuk menghadapi tantangan hidup.</li>
+            <li>Mendorong pengambilan keputusan yang lebih baik.</li>
+            <li>Meningkatkan rasa percaya diri dan motivasi.</li>
+            <li>Membantu mengelola stres dengan lebih efektif.</li>
+        </ul>
+
+        <h2>Cara Meningkatkan Self-Efficacy</h2>
+        <ul>
+            <li><strong>Pengalaman langsung:</strong> Mengatasi tantangan dengan sukses dapat meningkatkan keyakinan diri.</li>
+            <li><strong>Observasi:</strong> Melihat orang lain berhasil dapat memberikan inspirasi dan motivasi.</li>
+            <li><strong>Dukungan sosial:</strong> Pujian dan dorongan dari orang lain dapat memperkuat keyakinan diri.</li>
+            <li><strong>Pengelolaan emosi:</strong> Mengurangi stres dan kecemasan melalui relaksasi atau teknik mindfulness.</li>
+        </ul>
+
+        <button onclick="showMainPage()" class="submit-button">Kembali ke Beranda</button>
+    </div>
+
+    <footer>
+        <p>Hubungi kami di <a href="mailto:ptrinabilahg@gmail.com">ptrinabilahg@gmail.com</a> atau +62 877-8561-7042</p>
+        <p>&copy; 2025 Self-Efficacy Platform</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
